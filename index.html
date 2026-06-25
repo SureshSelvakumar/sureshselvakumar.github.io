@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
     :root {
       --bg:        #0B0F19;
       --surface:   #121826;
@@ -22,9 +22,9 @@
       --font-main: 'Space Grotesk', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
     }
-
+ 
     html { scroll-behavior: smooth; }
-
+ 
     body {
       background: var(--bg);
       color: var(--text);
@@ -33,7 +33,7 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
+ 
     /* ─── NAV ─────────────────────────────────────── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -46,9 +46,23 @@
     .nav-logo {
       font-family: var(--font-mono);
       font-size: 1rem;
-      color: var(--accent);
       letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.15rem;
+      text-decoration: none;
     }
+    .logo-bracket { color: var(--accent2); font-size: 1.2rem; font-weight: 700; }
+    .logo-name {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+    .logo-dot { color: var(--accent); font-size: 1.1rem; }
+    .logo-ext { color: var(--muted); font-size: 0.85rem; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
       color: var(--muted);
@@ -58,7 +72,7 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--accent); }
-
+ 
     /* ─── HERO ────────────────────────────────────── */
     #hero {
       min-height: 100vh;
@@ -136,7 +150,7 @@
       border: 1px solid var(--border);
     }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-
+ 
     .hero-stats {
       display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
       margin-top: 3.5rem;
@@ -149,7 +163,7 @@
       font-family: var(--font-mono);
     }
     .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
-
+ 
     /* ─── SECTIONS ────────────────────────────────── */
     section { padding: 5rem 2rem; }
     .container { max-width: 1000px; margin: 0 auto; }
@@ -167,7 +181,7 @@
       letter-spacing: -0.02em;
       margin-bottom: 3rem;
     }
-
+ 
     /* ─── SKILLS ─────────────────────────────────── */
     #skills { background: var(--surface); }
     .skills-grid {
@@ -203,7 +217,7 @@
     }
     .tag.purple { color: var(--accent2); border-color: rgba(129,140,248,0.2); background: #130F2B; }
     .tag.green  { color: var(--green);  border-color: rgba(52,211,153,0.2);  background: #0A1F1A; }
-
+ 
     /* ─── PROJECTS ───────────────────────────────── */
     .projects-grid {
       display: grid;
@@ -237,7 +251,7 @@
       font-size: 0.875rem; color: var(--muted); margin-bottom: 1.25rem; flex: 1;
     }
     .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-
+ 
     /* ─── EXPERIENCE ─────────────────────────────── */
     #experience { background: var(--surface); }
     .timeline { position: relative; padding-left: 2rem; }
@@ -273,7 +287,7 @@
       font-size: 0.875rem; color: var(--muted);
     }
     .timeline-desc li { margin-bottom: 0.3rem; padding-left: 0.25rem; }
-
+ 
     /* ─── EDUCATION ──────────────────────────────── */
     .edu-grid { display: grid; gap: 1rem; }
     .edu-card {
@@ -291,7 +305,7 @@
       font-weight: 700;
       color: var(--accent);
     }
-
+ 
     /* ─── CONTACT ────────────────────────────────── */
     #contact { text-align: center; }
     .contact-box {
@@ -322,7 +336,7 @@
       transition: all 0.2s;
     }
     .contact-link:hover { color: var(--accent); border-color: var(--accent); }
-
+ 
     /* ─── FOOTER ─────────────────────────────────── */
     footer {
       text-align: center;
@@ -332,7 +346,7 @@
       color: var(--muted);
       font-family: var(--font-mono);
     }
-
+ 
     /* ─── SCROLL ANIMATION ───────────────────────── */
     .reveal {
       opacity: 0;
@@ -343,7 +357,7 @@
       opacity: 1;
       transform: translateY(0);
     }
-
+ 
     /* ─── RESPONSIVE ──────────────────────────────── */
     @media (max-width: 600px) {
       nav { padding: 1rem 1.25rem; }
@@ -357,10 +371,16 @@
   </style>
 </head>
 <body>
-
+ 
 <!-- NAV -->
 <nav>
-  <span class="nav-logo">suresh.dev</span>
+  <a href="#hero" class="nav-logo">
+    <span class="logo-bracket">&lt;</span>
+    <span class="logo-name">suresh</span>
+    <span class="logo-dot">.</span>
+    <span class="logo-ext">dev</span>
+    <span class="logo-bracket">/&gt;</span>
+  </a>
   <ul class="nav-links">
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -368,7 +388,7 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
-
+ 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-grid-bg"></div>
@@ -403,7 +423,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- SKILLS -->
 <section id="skills">
   <div class="container">
@@ -450,14 +470,14 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- PROJECTS -->
 <section id="projects">
   <div class="container">
     <div class="section-label reveal">Things I've built</div>
     <h2 class="section-title reveal">Projects</h2>
     <div class="projects-grid">
-
+ 
       <div class="project-card reveal">
         <div class="project-icon">🎬</div>
         <div class="project-title">Movie Ticket Booking System</div>
@@ -469,7 +489,7 @@
           <span class="tag purple">Django</span>
         </div>
       </div>
-
+ 
       <div class="project-card reveal">
         <div class="project-icon">🌤️</div>
         <div class="project-title">Weather App</div>
@@ -482,7 +502,7 @@
           <span class="tag">Geolocation</span>
         </div>
       </div>
-
+ 
       <div class="project-card reveal">
         <div class="project-icon">🤖</div>
         <div class="project-title">AI Voice Assistant</div>
@@ -495,7 +515,7 @@
           <span class="tag purple">SpeechRecognition</span>
         </div>
       </div>
-
+ 
       <div class="project-card reveal">
         <div class="project-icon">🧮</div>
         <div class="project-title">Calculator</div>
@@ -508,18 +528,18 @@
           <span class="tag">JavaScript</span>
         </div>
       </div>
-
+ 
     </div>
   </div>
 </section>
-
+ 
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="container">
     <div class="section-label reveal">Where I've worked</div>
     <h2 class="section-title reveal">Experience</h2>
     <div class="timeline">
-
+ 
       <div class="timeline-item reveal">
         <div class="timeline-dot"></div>
         <div class="timeline-role">Web Development Intern</div>
@@ -532,7 +552,7 @@
           <li>Participated in project documentation and deployment activities.</li>
         </ul>
       </div>
-
+ 
       <div class="timeline-item reveal">
         <div class="timeline-dot"></div>
         <div class="timeline-role">Digital Marketing Intern</div>
@@ -544,11 +564,11 @@
           <li>Conducted keyword research and assisted with SEO for blogs and landing pages.</li>
         </ul>
       </div>
-
+ 
     </div>
   </div>
 </section>
-
+ 
 <!-- EDUCATION -->
 <section id="education">
   <div class="container">
@@ -579,7 +599,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
@@ -592,19 +612,19 @@
       <div class="contact-email">sureshselvakumar2898@gmail.com</div>
       <div class="contact-links">
         <a href="mailto:sureshselvakumar2898@gmail.com" class="contact-link">📧 Email</a>
-        <a href="https://linkedin.com" class="contact-link" target="_blank">💼 LinkedIn</a>
-        <a href="https://github.com" class="contact-link" target="_blank">🐙 GitHub</a>
-        <a href="tel:+919500366534" class="contact-link">📞 Call</a>
+        <a href="https://www.linkedin.com/in/suresh-s-175849264" class="contact-link" target="_blank">💼 LinkedIn</a>
+        <a href="https://github.com/SureshSelvakumar" class="contact-link" target="_blank">🐙 GitHub</a>
+        <a href="tel:+919500366534" class="contact-link">📞 +91 9500366534</a>
       </div>
     </div>
   </div>
 </section>
-
+ 
 <!-- FOOTER -->
 <footer>
   <span>Built by Suresh Selvakumar · 2026</span>
 </footer>
-
+ 
 <script>
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
